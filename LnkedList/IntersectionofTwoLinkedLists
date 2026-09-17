@@ -1,0 +1,36 @@
+
+  struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
+ 
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode* tempA = headA ;
+     
+        int skypeA = 1 ;
+        int skypeB = 1 ;
+        while(tempA != nullptr){
+               ListNode* tempB = headB ;
+            while(tempB != nullptr){
+                if(tempA == tempB){
+                    cout<<tempA<<endl;
+                    
+                    cout<<"Skype A"<<skypeA<<endl;
+                    cout<<"Skype B"<<skypeB<<endl;
+                    
+                    return tempA ;
+                }
+                tempB = tempB->next ;
+                skypeB ++ ;
+                    
+            }
+            tempA = tempA->next ;
+            skypeA++ ;
+        }
+        return nullptr ;
+       
+    }
+};
